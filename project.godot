@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="7. Tic Tac Toe"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=832
+window/stretch/mode="viewport"
+
+[editor]
+
+movie_writer/movie_file="D:/Apps/Godot/movies/Recording.avi"
+
+[internationalization]
+
+locale/translation_remaps={
+"res://chinese.tres": PackedStringArray("res://normal.tres:en")
+}
+locale/translations=PackedStringArray("res://translations.cmn.translation", "res://translations.en.translation", "res://translations.fr.translation", "res://translations.hr.translation", "res://translations.pl.translation", "res://translations.sr.translation")
+locale/locale_filter_mode=0
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

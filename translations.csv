@@ -1,0 +1,10 @@
+﻿key,en,cmn,pl,fr,hr,sr
+GAME_NAME,20 Games Challenge,二十游戏的挑战,Wyzwanie 20 Gier,20 Jeux Challenge,20 Igara Izazov,20 игара изазов
+GAME_NAME2,7. Tic-Tac-Toe,第七: 圈圈叉叉,7. Kółko i Krzyżyk,7. Tic-Tac-Toe,7. Tic-Tac-Toe,7. Тиц-Тац-Тое
+LANGUAGE,English,中文,Polski,Français,Hrvatski,Српски
+WELCOME,"Hi, good luck!",嗨 加油！,"Hej, powodzenia!","Salut, bonne chance!","Hej, srećno!","Хеј, сретно"
+PLAYER1_TURN,Player 1 Turn,玩家一回合,Tura Gracza 1,Jouer 1 Tour,Red Igrača 1,Ред играча 1
+PLAYER1_WIN,Player 1 Wins！,玩家一获胜!,Gracz 1 wygrywa!,Jouer 1 Gagne!,Igrač 1 Podjeđuje!,Играч 1 побеђује
+PLAYER2_TURN,Player 2 Turn,玩家二回合,Tura Gracza 2,Jouer 2 Tour,Red Igrača 2,Ред играча 2
+PLAYER2_WIN,Player 2 Wins！,玩家二获胜!,Gracz 2 wygrywa！,Jouer 2 Gagne!,Igrač 2 Podjeđuje!,Играч 2 побеђује
+TIE,Draw！,平局！,Remis！,Match Nul!,Drav!,Драв!
