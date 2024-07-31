@@ -30,7 +30,7 @@ movie_writer/movie_file="D:/Apps/Godot/movies/Recording.avi"
 locale/translation_remaps={
 "res://chinese.tres": PackedStringArray("res://normal.tres:en")
 }
-locale/translations=PackedStringArray("res://translations.cmn.translation", "res://translations.en.translation", "res://translations.fr.translation", "res://translations.hr.translation", "res://translations.pl.translation", "res://translations.sr.translation")
+locale/translations=PackedStringArray("res://translations.cmn.translation", "res://translations.en.translation", "res://translations.fr.translation", "res://translations.hr.translation", "res://translations.pl.translation")
 locale/locale_filter_mode=0
 
 [rendering]

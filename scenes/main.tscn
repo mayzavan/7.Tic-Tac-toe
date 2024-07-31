@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dnv5s55dgh65v"]
+[gd_scene load_steps=22 format=3 uid="uid://dnv5s55dgh65v"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7xh8g"]
 [ext_resource type="Texture2D" uid="uid://ccyx2xfki4ofw" path="res://art/tiles.png" id="1_ngjb7"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://w5s34ryasece" path="res://art/quit.png" id="5_lva3w"]
 [ext_resource type="Texture2D" uid="uid://j1slbjp5iwls" path="res://art/vs_ai.png" id="6_svye4"]
 [ext_resource type="Texture2D" uid="uid://brbyd1fpu45o" path="res://art/2players.png" id="7_xh5cs"]
+[ext_resource type="AudioStream" uid="uid://dggtwtrf6rmj7" path="res://sfx/hover_button.wav" id="8_aff61"]
+[ext_resource type="AudioStream" uid="uid://mjbj65ex3s5x" path="res://sfx/click_button.wav" id="9_rb8lq"]
+[ext_resource type="AudioStream" uid="uid://cyeryioqtyej6" path="res://sfx/circle.wav" id="10_3pwbi"]
+[ext_resource type="AudioStream" uid="uid://c2n3xv0gj064u" path="res://sfx/cross.wav" id="11_j6a3b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqy20"]
 
@@ -24,15 +28,11 @@ thickness = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ph57m"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vl2vq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwogg"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdy7f"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_snnba"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7m28"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urgx6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_530bi"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6l07"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_7xh8g")
@@ -333,11 +333,6 @@ offset_top = 544.0
 offset_right = 314.0
 offset_bottom = 728.0
 theme = ExtResource("4_le6c2")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vl2vq")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_fdy7f")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_s7m28")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_urgx6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_530bi")
 text = "LANGUAGE"
 flat = true
 
@@ -347,6 +342,7 @@ offset_top = 512.0
 offset_right = 408.0
 offset_bottom = 536.0
 scale = Vector2(10, 10)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dwogg")
 icon = ExtResource("5_lva3w")
 flat = true
 
@@ -356,6 +352,7 @@ offset_top = 296.0
 offset_right = 408.0
 offset_bottom = 320.0
 scale = Vector2(10, 10)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_snnba")
 icon = ExtResource("6_svye4")
 flat = true
 
@@ -365,8 +362,29 @@ offset_top = 296.0
 offset_right = 32.0
 offset_bottom = 320.0
 scale = Vector2(10, 10)
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w6l07")
 icon = ExtResource("7_xh5cs")
 flat = true
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Hover" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_aff61")
+volume_db = -15.0
+
+[node name="Click" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("9_rb8lq")
+volume_db = -15.0
+
+[node name="Circle" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("10_3pwbi")
+volume_db = -15.0
+pitch_scale = 1.2
+
+[node name="Cross" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("11_j6a3b")
+volume_db = -15.0
+pitch_scale = 1.2
 
 [connection signal="pressed" from="Buttons/zero" to="." method="_on_zero_pressed"]
 [connection signal="pressed" from="Buttons/one" to="." method="_on_one_pressed"]
@@ -377,7 +395,11 @@ flat = true
 [connection signal="pressed" from="Buttons/six" to="." method="_on_six_pressed"]
 [connection signal="pressed" from="Buttons/seven" to="." method="_on_seven_pressed"]
 [connection signal="pressed" from="Buttons/eight" to="." method="_on_eight_pressed"]
+[connection signal="mouse_entered" from="mainmenu/Label3" to="." method="_on_label_3_mouse_entered"]
 [connection signal="pressed" from="mainmenu/Label3" to="." method="_on_label_3_pressed"]
+[connection signal="mouse_entered" from="mainmenu/quitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="mainmenu/quitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="mainmenu/aiButton" to="." method="_on_ai_button_mouse_entered"]
 [connection signal="pressed" from="mainmenu/aiButton" to="." method="_on_ai_button_pressed"]
+[connection signal="mouse_entered" from="mainmenu/2Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="mainmenu/2Button" to="." method="_on_button_pressed"]

@@ -1,16 +1,17 @@
-﻿key,en,cmn,pl,fr,hr,sr
-GAME_NAME,20 Games Challenge,二十游戏的挑战,Wyzwanie 20 Gier,20 Jeux Challenge,20 Igara Izazov,20 игара изазов
-GAME_NAME2,7. Tic-Tac-Toe,第七: 井字棋,7. Kółko i Krzyżyk,7. Tic-Tac-Toe,7. Tic-Tac-Toe,7. Тиц-Тац-Тое
-LANGUAGE,English,中文,Polski,Français,Hrvatski,Српски
-WELCOME,"Hi, good luck!",嗨 加油！,"Hej, powodzenia!","Salut, bonne chance!","Hej, srećno!","Хеј, сретно"
-PLAYER1_TURN,Player 1 Turn,玩家一回合,Tura Gracza 1,Jouer 1 Tour,Red Igrača 1,Ред играча 1
-PLAYER1_WIN,Player 1 Wins！,玩家一获胜!,Gracz 1 wygrywa!,Jouer 1 Gagne!,Igrač 1 Podjeđuje!,Играч 1 побеђује
-PLAYER2_TURN,Player 2 Turn,玩家二回合,Tura Gracza 2,Jouer 2 Tour,Red Igrača 2,Ред играча 2
-PLAYER2_WIN,Player 2 Wins！,玩家二获胜!,Gracz 2 wygrywa！,Jouer 2 Gagne!,Igrač 2 Podjeđuje!,Играч 2 побеђује
-TIE,Draw！,平局！,Remis！,Match Nul!,Drav!,Драв!
-AI_WIN,Oh I won!,哇哦我获胜了！,O wygrałem!,Oh j'ai gagné!,O pobijedio sam!,О победио сам!
-AI_LOST,Oh I lost…,噢噢我输了。。。,Oh przegrałem...,Oh j'ai perdu...,Oh izgubio sam...,Ох изгубио сам...
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
+﻿key,en,cmn,pl,fr,hr
+GAME_NAME,20 Games Challenge,二十游戏的挑战,Wyzwanie 20 Gier,20 Jeux Challenge,20 Igara Izazov
+GAME_NAME2,7. Tic-Tac-Toe,第七: 井字棋,7. Kółko i Krzyżyk,7. Tic-Tac-Toe,7. Tic-Tac-Toe
+LANGUAGE,English,中文,Polski,Français,Hrvatski
+WELCOME,"Hi, good luck!",嗨 加油！,"Hej, powodzenia!","Salut, bonne chance!","Hej, srećno!"
+PLAYER1_TURN,Player 1 Turn,玩家一回合,Tura Gracza 1,Jouer 1 Tour,Red Igrača 1
+PLAYER1_WIN,Player 1 Wins！,玩家一获胜!,Gracz 1 wygrywa!,Jouer 1 Gagne!,Igrač 1 Podjeđuje!
+PLAYER2_TURN,Player 2 Turn,玩家二回合,Tura Gracza 2,Jouer 2 Tour,Red Igrača 2
+PLAYER2_WIN,Player 2 Wins！,玩家二获胜!,Gracz 2 wygrywa！,Jouer 2 Gagne!,Igrač 2 Podjeđuje!
+TIE,Draw！,平局！,Remis！,Match Nul!,Drav!
+AI_WIN,Oh I won!,哇哦我获胜了！,O wygrałem!,Oh j'ai gagné!,O pobijedio sam!
+AI_LOST,Oh I lost…,噢噢我输了。。。,Oh przegrałem...,Oh j'ai perdu...,Oh izgubio sam...
+WHY_MOVE,Why...?,为什么。。。？,Dlaczego...?,Pourquoi?,Zašto...?
+BAD_MOVE,Looks like a bad move for me ,看起来像不好的着,"Myślę, że to był słaby ruch",Je pense que c'était pas un bon coup,Izgleda kao loš potez
+NOT_THE_BEST_MOVE,Maybe there was a better move?,有没有更好的着嘛？,Może był lepszy ruch?,Peut-être y avait mieux coup ?,Možda je postojao bolji potez?
+GOOD_MOVE,That was pretty good…,妙着儿。。。,To było niezłe...,C'était plutôt bien…,To je bilo prilično dobro…
+BEST_MOVE,That's the best move!,最好的着！,Najlepszy ruch!,Le meilleur coup!,Najbolji potez!

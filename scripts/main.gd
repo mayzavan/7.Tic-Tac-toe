@@ -5,14 +5,20 @@ var can_move: bool = false
 var cells: Array
 var turn: int = 0
 var chosenlang: int = 0
+var move: int = 0
 
 func _on_quit_button_pressed():
+	$SFX/Click.play()
+	await get_tree().create_timer(0.2).timeout
 	get_tree().quit()
 func _on_ai_button_pressed():
+	$SFX/Click.play()
 	start_game(1)
 func _on_button_pressed():
+	$SFX/Click.play()
 	start_game(0)
 func _on_label_3_pressed():
+	$SFX/Click.play()
 	if chosenlang >= 5:
 		chosenlang = 0
 	else:
@@ -30,6 +36,17 @@ func _on_label_3_pressed():
 			TranslationServer.set_locale('hr')
 		5:
 			TranslationServer.set_locale('sr')
+func _on_label_3_mouse_entered():
+	$SFX/Hover.play()
+func _on_quit_button_mouse_entered():
+	$SFX/Hover.play()
+func _on_ai_button_mouse_entered():
+	$SFX/Hover.play()
+func _on_button_mouse_entered():
+	$SFX/Hover.play()
+
+
+
 
 func _on_zero_pressed():
 	button_pressed(0)
@@ -52,6 +69,7 @@ func _on_eight_pressed():
 
 func start_game(mode):
 	$mainmenu.hide()
+	move = 0
 	turn = 0
 	game_type = mode
 	cells = [0,0,0,0,0,0,0,0,0]
@@ -85,13 +103,17 @@ func check_win(cells):
 
 func button_pressed(button):
 	if cells[button] == 0 and can_move:
+		ai_reaction(button)
+		await get_tree().create_timer(0.05).timeout
 		if turn == 0:
+			$SFX/Cross.play()
 			var sprite_path = "Cells/" + str(button)
 			var sprite_node = get_node(sprite_path)
 			sprite_node.frame = 1
 			cells[button] = 1
 			turn = 1
 		elif turn == 1:
+			$SFX/Circle.play()
 			var sprite_path = "Cells/" + str(button)
 			var sprite_node = get_node(sprite_path)
 			sprite_node.frame = 2
@@ -117,6 +139,7 @@ func update():
 	elif cells.find(0) == -1:
 		$"2Players/Label".text = 'TIE'
 		$AI/Label.text = 'TIE'
+		$AI/Sprite2D.frame = 0
 		can_move = false
 		end_game()
 	if check_win(cells) == false:
@@ -219,8 +242,7 @@ func ai_estimation():
 	var two_best: Array = []
 	two_best.append(sorted_options.pop_back())
 	two_best.append(sorted_options.pop_back())
-	print('two best: ' + str(two_best))
-	await get_tree().create_timer(randf_range(0.1,0.5)).timeout
+	await get_tree().create_timer(randf_range(0.3,1.1)).timeout
 	var which = randf()
 	if which >= 0.03 and two_best[0] != null and two_best[1] != null:
 		to_move = two_best.pop_front()
@@ -268,9 +290,145 @@ func ai_estimation():
 		8:
 			ai_move(8)
 
-func ai_reaction(reaction):
-	pass
+func ai_reaction(player_move):
+	if move > 0:
+		var options: Array = [0,0,0,0,0,0,0,0,0]
+		var sorted_options: Array = []
+		var a0: int = 0
+		var a1: int = 0
+		var a2: int = 0
+		var a3: int = 0
+		var a4: int = 0
+		var a5: int = 0
+		var a6: int = 0
+		var a7: int = 0
+		var a8: int = 0
+		var tempCells
+		var ai_movement: Array = []
+		var to_move:int = 0
+		for a in 9:
+			if cells[a] != 0:
+				options[a] = -1000
+		
+		for i in 9:
+			tempCells = cells.duplicate()
+			if tempCells[i] == 0:
+				tempCells[i] = 1
+				if check_win(tempCells) == true:# winning now
+					options[i] += 100
+				for j in 9:
+					tempCells = cells.duplicate()
+					tempCells[i] = 1
+					if tempCells[j] == 0:
+						tempCells[j] = 2
+						if check_win(tempCells) == true:# losing next
+							options[i] += -100
+							options[j] += 200
+						for k in 9:
+							tempCells = cells.duplicate()
+							tempCells[i] = 1
+							tempCells[j] = 2
+							if tempCells[k] == 0:
+								tempCells[k] = 1
+								if check_win(tempCells) == true:# can win in 2
+									options[i] += 20
+								for l in 9:
+									tempCells = cells.duplicate()
+									tempCells[i] = 1
+									tempCells[j] = 2
+									tempCells[k] = 1
+									if tempCells[l] == 0:
+										tempCells[l] = 2
+										if check_win(tempCells) == true:# can lose in 2
+											options[i] += -1
+											options[l] += 1
+		
+		a0 = options[0]
+		a1 = options[1]
+		a2 = options[2]
+		a3 = options[3]
+		a4 = options[4]
+		a5 = options[5]
+		a6 = options[6]
+		a7 = options[7]
+		a8 = options[8]
+		match player_move:
+			0:
+				player_move = a0
+			1:
+				player_move = a1
+			2:
+				player_move = a2
+			3:
+				player_move = a3
+			4:
+				player_move = a4
+			5:
+				player_move = a5
+			6:
+				player_move = a6
+			7:
+				player_move = a7
+			8:
+				player_move = a8
+		sorted_options = [a0,a1,a2,a3,a4,a5,a6,a7,a8]
+		sorted_options.sort()
+		print(options)
+		print(sorted_options)
+		print(player_move)
+		for z in 8:
+			var to_remove = sorted_options.find(-1000)
+			if to_remove != -1:
+				sorted_options.pop_at(to_remove)
+		if player_move == sorted_options[0]:
+			$AI/Label.text = 'WHY_MOVE'
+			$AI/Sprite2D.frame = 5
+		elif player_move == sorted_options[-1]:
+			$AI/Label.text = 'BEST_MOVE'
+			$AI/Sprite2D.frame = 2
+		if sorted_options.size() >= 6:
+			if player_move == sorted_options[1]:
+				$AI/Label.text = 'GOOD_MOVE'
+				$AI/Sprite2D.frame = 4
+			elif player_move == sorted_options[2] or player_move == sorted_options[3]:
+				$AI/Label.text = 'NOT_THE_BEST_MOVE'
+				$AI/Sprite2D.frame = 3
+			elif player_move == sorted_options[4]:
+				$AI/Label.text = 'BAD_MOVE'
+				$AI/Sprite2D.frame = 5
+		elif sorted_options.size() == 5:
+			if player_move == sorted_options[1]:
+				$AI/Label.text = 'GOOD_MOVE'
+				$AI/Sprite2D.frame = 4
+			elif player_move == sorted_options[2]:
+				$AI/Label.text = 'NOT_THE_BEST_MOVE'
+				$AI/Sprite2D.frame = 3
+			elif player_move == sorted_options[3]:
+				$AI/Label.text = 'BAD_MOVE'
+				$AI/Sprite2D.frame = 5
+		elif sorted_options.size() == 4:
+			if player_move == sorted_options[1] or player_move == sorted_options[2]:
+				$AI/Label.text = 'NOT_THE_BEST_MOVE'
+				$AI/Sprite2D.frame = 3
+		elif sorted_options.size() == 3:
+			if player_move == sorted_options[1]:
+				$AI/Label.text = 'NOT_THE_BEST_MOVE'
+				$AI/Sprite2D.frame = 3
+	
+	elif move == 0:
+		if player_move == 0 or player_move == 2 or player_move == 6 or player_move == 8:
+			$AI/Label.text = 'BEST_MOVE'
+			$AI/Sprite2D.frame = 2
+		elif player_move == 4:
+			$AI/Label.text = 'GOOD_MOVE'
+			$AI/Sprite2D.frame = 4
+		else:
+			$AI/Label.text = 'BAD_MOVE'
+			$AI/Sprite2D.frame = 5
+	move += 1
+
 func ai_move(cell):
+	$SFX/Circle.play()
 	cells[cell] = 2
 	var sprite_path = "Cells/" + str(cell)
 	var sprite_node = get_node(sprite_path)
