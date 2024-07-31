@@ -1,0 +1,383 @@
+[gd_scene load_steps=20 format=3 uid="uid://dnv5s55dgh65v"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_7xh8g"]
+[ext_resource type="Texture2D" uid="uid://ccyx2xfki4ofw" path="res://art/tiles.png" id="1_ngjb7"]
+[ext_resource type="Texture2D" uid="uid://bsxcq45ibynv" path="res://art/computer.png" id="2_ttlmd"]
+[ext_resource type="Theme" uid="uid://cmqrfj5c4qcmh" path="res://normal.tres" id="4_le6c2"]
+[ext_resource type="Texture2D" uid="uid://w5s34ryasece" path="res://art/quit.png" id="5_lva3w"]
+[ext_resource type="Texture2D" uid="uid://j1slbjp5iwls" path="res://art/vs_ai.png" id="6_svye4"]
+[ext_resource type="Texture2D" uid="uid://brbyd1fpu45o" path="res://art/2players.png" id="7_xh5cs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqy20"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g8206"]
+color = Color(0.980392, 0.580392, 0.584314, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlgb2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yr8y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u02sk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1uhny"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ph57m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vl2vq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdy7f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7m28"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urgx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_530bi"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_7xh8g")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasGroup"]
+modulate = Color(0.160784, 0.0862745, 0.113725, 1)
+offset_right = 640.0
+offset_bottom = 832.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mqy20")
+
+[node name="Panel2" type="Panel" parent="CanvasGroup"]
+offset_left = 64.0
+offset_top = 608.0
+offset_right = 192.0
+offset_bottom = 616.0
+scale = Vector2(4, 4)
+theme_override_styles/panel = SubResource("StyleBoxLine_g8206")
+
+[node name="Panel4" type="Panel" parent="CanvasGroup"]
+offset_left = 224.0
+offset_top = 256.0
+offset_right = 352.0
+offset_bottom = 264.0
+rotation = 1.5708
+scale = Vector2(4, 4)
+theme_override_styles/panel = SubResource("StyleBoxLine_g8206")
+
+[node name="Panel5" type="Panel" parent="CanvasGroup"]
+offset_left = 424.0
+offset_top = 256.0
+offset_right = 552.0
+offset_bottom = 264.0
+rotation = 1.5708
+scale = Vector2(4, 4)
+theme_override_styles/panel = SubResource("StyleBoxLine_g8206")
+
+[node name="Panel3" type="Panel" parent="CanvasGroup"]
+offset_left = 64.0
+offset_top = 408.0
+offset_right = 192.0
+offset_bottom = 416.0
+scale = Vector2(4, 4)
+theme_override_styles/panel = SubResource("StyleBoxLine_g8206")
+
+[node name="Cells" type="Node2D" parent="."]
+
+[node name="0" type="Sprite2D" parent="Cells"]
+position = Vector2(128, 320)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ngjb7")
+hframes = 3
+frame = 1
+
+[node name="1" type="Sprite2D" parent="Cells"]
+position = Vector2(320, 320)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ngjb7")
+hframes = 3
+frame = 1
+
+[node name="2" type="Sprite2D" parent="Cells"]
+position = Vector2(512, 320)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ngjb7")
+hframes = 3
+frame = 1
+
+[node name="3" type="Sprite2D" parent="Cells"]
+position = Vector2(128, 512)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ngjb7")
+hframes = 3
+frame = 1
+
+[node name="4" type="Sprite2D" parent="Cells"]
+position = Vector2(320, 512)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ngjb7")
+hframes = 3
+frame = 1
+
+[node name="5" type="Sprite2D" parent="Cells"]
+position = Vector2(512, 512)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ngjb7")
+hframes = 3
+frame = 1
+
+[node name="6" type="Sprite2D" parent="Cells"]
+position = Vector2(128, 704)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ngjb7")
+hframes = 3
+frame = 1
+
+[node name="7" type="Sprite2D" parent="Cells"]
+position = Vector2(320, 704)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ngjb7")
+hframes = 3
+frame = 1
+
+[node name="8" type="Sprite2D" parent="Cells"]
+position = Vector2(512, 704)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ngjb7")
+hframes = 3
+frame = 1
+
+[node name="AI" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AI"]
+position = Vector2(128, 128)
+scale = Vector2(7.725, 7.725)
+texture = ExtResource("2_ttlmd")
+hframes = 3
+vframes = 2
+
+[node name="Label" type="Label" parent="AI"]
+offset_left = 216.0
+offset_top = 24.0
+offset_right = 640.0
+offset_bottom = 224.0
+theme = ExtResource("4_le6c2")
+theme_override_font_sizes/font_size = 45
+text = "Hi, good luck!"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="zero" type="Button" parent="Buttons"]
+offset_left = 40.0
+offset_top = 232.0
+offset_right = 200.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlgb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6yr8y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u02sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1uhny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph57m")
+flat = true
+
+[node name="one" type="Button" parent="Buttons"]
+offset_left = 240.0
+offset_top = 232.0
+offset_right = 400.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlgb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6yr8y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u02sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1uhny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph57m")
+flat = true
+
+[node name="two" type="Button" parent="Buttons"]
+offset_left = 440.0
+offset_top = 232.0
+offset_right = 600.0
+offset_bottom = 392.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlgb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6yr8y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u02sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1uhny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph57m")
+flat = true
+
+[node name="three" type="Button" parent="Buttons"]
+offset_left = 40.0
+offset_top = 432.0
+offset_right = 200.0
+offset_bottom = 592.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlgb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6yr8y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u02sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1uhny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph57m")
+flat = true
+
+[node name="four" type="Button" parent="Buttons"]
+offset_left = 240.0
+offset_top = 432.0
+offset_right = 400.0
+offset_bottom = 592.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlgb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6yr8y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u02sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1uhny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph57m")
+flat = true
+
+[node name="five" type="Button" parent="Buttons"]
+offset_left = 440.0
+offset_top = 432.0
+offset_right = 600.0
+offset_bottom = 592.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlgb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6yr8y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u02sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1uhny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph57m")
+flat = true
+
+[node name="six" type="Button" parent="Buttons"]
+offset_left = 40.0
+offset_top = 632.0
+offset_right = 200.0
+offset_bottom = 792.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlgb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6yr8y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u02sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1uhny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph57m")
+flat = true
+
+[node name="seven" type="Button" parent="Buttons"]
+offset_left = 240.0
+offset_top = 632.0
+offset_right = 400.0
+offset_bottom = 792.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlgb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6yr8y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u02sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1uhny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph57m")
+flat = true
+
+[node name="eight" type="Button" parent="Buttons"]
+offset_left = 440.0
+offset_top = 632.0
+offset_right = 600.0
+offset_bottom = 792.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlgb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6yr8y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u02sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1uhny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ph57m")
+flat = true
+
+[node name="2Players" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="2Players"]
+offset_top = 24.0
+offset_right = 640.0
+offset_bottom = 224.0
+theme = ExtResource("4_le6c2")
+text = "PLAYER1_TURN"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="mainmenu" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="mainmenu"]
+modulate = Color(0.160784, 0.0862745, 0.113725, 1)
+offset_right = 640.0
+offset_bottom = 832.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mqy20")
+
+[node name="Label" type="Label" parent="mainmenu"]
+offset_left = 336.0
+offset_top = 704.0
+offset_right = 680.0
+offset_bottom = 888.0
+theme = ExtResource("4_le6c2")
+theme_override_font_sizes/font_size = 30
+text = "by mayzavan"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="mainmenu"]
+offset_top = 40.0
+offset_right = 640.0
+offset_bottom = 152.0
+theme = ExtResource("4_le6c2")
+text = "GAME_NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="mainmenu"]
+offset_top = 112.0
+offset_right = 640.0
+offset_bottom = 224.0
+theme = ExtResource("4_le6c2")
+text = "GAME_NAME2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Button" parent="mainmenu"]
+modulate = Color(0.980392, 0.580392, 0.584314, 1)
+offset_left = -24.0
+offset_top = 544.0
+offset_right = 314.0
+offset_bottom = 728.0
+theme = ExtResource("4_le6c2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vl2vq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fdy7f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s7m28")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_urgx6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_530bi")
+text = "LANGUAGE"
+flat = true
+
+[node name="quitButton" type="Button" parent="mainmenu"]
+offset_left = 384.0
+offset_top = 512.0
+offset_right = 408.0
+offset_bottom = 536.0
+scale = Vector2(10, 10)
+icon = ExtResource("5_lva3w")
+flat = true
+
+[node name="aiButton" type="Button" parent="mainmenu"]
+offset_left = 384.0
+offset_top = 296.0
+offset_right = 408.0
+offset_bottom = 320.0
+scale = Vector2(10, 10)
+icon = ExtResource("6_svye4")
+flat = true
+
+[node name="2Button" type="Button" parent="mainmenu"]
+offset_left = 8.0
+offset_top = 296.0
+offset_right = 32.0
+offset_bottom = 320.0
+scale = Vector2(10, 10)
+icon = ExtResource("7_xh5cs")
+flat = true
+
+[connection signal="pressed" from="Buttons/zero" to="." method="_on_zero_pressed"]
+[connection signal="pressed" from="Buttons/one" to="." method="_on_one_pressed"]
+[connection signal="pressed" from="Buttons/two" to="." method="_on_two_pressed"]
+[connection signal="pressed" from="Buttons/three" to="." method="_on_three_pressed"]
+[connection signal="pressed" from="Buttons/four" to="." method="_on_four_pressed"]
+[connection signal="pressed" from="Buttons/five" to="." method="_on_five_pressed"]
+[connection signal="pressed" from="Buttons/six" to="." method="_on_six_pressed"]
+[connection signal="pressed" from="Buttons/seven" to="." method="_on_seven_pressed"]
+[connection signal="pressed" from="Buttons/eight" to="." method="_on_eight_pressed"]
+[connection signal="pressed" from="mainmenu/Label3" to="." method="_on_label_3_pressed"]
+[connection signal="pressed" from="mainmenu/quitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="mainmenu/aiButton" to="." method="_on_ai_button_pressed"]
+[connection signal="pressed" from="mainmenu/2Button" to="." method="_on_button_pressed"]
